@@ -1,0 +1,75 @@
+using System;
+
+namespace _3._2._2
+{
+
+    public enum AccountType { Current, Savings }
+    public class BankAccount
+    {
+        private int _AccountNumber;
+        private int _Balance;
+        private AccountType _Type;
+
+        public int AccountNumber
+        {
+            get { return _AccountNumber; }
+            set { _AccountNumber = value; }
+        }
+        public int Balance
+        {
+            get { return _Balance; }
+            set { _Balance = value; }
+        }
+        public AccountType Type
+        {
+            get { return _Type; }
+            set { _Type = value; }
+        }
+
+        public void Retract(BankAccount bankAccount, int amount)
+        {
+            this.Balance -= amount;
+            bankAccount.Balance += amount;
+        }
+
+    }
+
+    
+    class Program
+    {
+
+
+        //static void Main()
+        //{
+            //BankAccount bankAccount = new BankAccount();
+
+            //Console.WriteLine("Введите количество денег на счету: ");
+            //bankAccount.Balance = int.Parse(Console.ReadLine());
+
+            //Random rnd = new Random();
+            //bankAccount.AccountNumber = rnd.Next(1000000000, int.MaxValue);
+
+
+            //bankAccount.Type = AccountType.Current;
+
+            //Console.WriteLine(bankAccount.Type);
+            //Console.WriteLine("Тип банковского аккаунта: " + bankAccount.Type + ", номер счета: " + bankAccount.AccountNumber + ", Баланс: " + bankAccount.Balance);
+            //Console.ReadKey();
+
+
+
+        //}
+
+        static void Main (string [] args)
+        {
+            BankAccount bankAccount = new BankAccount() { Balance = 100, AccountNumber = 1 };
+            BankAccount bankAccount2 = new BankAccount() { Balance = 100, AccountNumber = 2 };
+            bankAccount.Retract(bankAccount2, 55);
+            Console.WriteLine(bankAccount.Balance);
+            Console.WriteLine(bankAccount2.Balance);
+            Console.ReadKey();
+        }
+
+        
+    }
+}

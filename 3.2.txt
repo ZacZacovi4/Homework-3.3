@@ -1,0 +1,18 @@
+using System;
+
+namespace _3._3._2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string s = "";
+            s = Console.ReadLine();
+            char[] sReverse = s.ToCharArray();
+            Array.Reverse(sReverse);
+            s = new string(sReverse);
+            Console.WriteLine(s);
+            Console.ReadLine();
+        }
+    }
+}
